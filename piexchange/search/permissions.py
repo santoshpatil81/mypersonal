@@ -1,4 +1,3 @@
-
 """
 Permissions class
 """

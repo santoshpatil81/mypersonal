@@ -6,7 +6,6 @@ from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 from search.views import CustomerViewSet, UserViewSet, api_root, SearchViewSet
 
-
 CUSTOMER_LIST = CustomerViewSet.as_view({
     'get': 'list',
     'post': 'create'

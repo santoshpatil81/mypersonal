@@ -1,4 +1,3 @@
-
 """
 Unit tests
 """
@@ -147,7 +146,7 @@ class TestCustomerSerializer(TestCase):
         self.assertEqual(
             set(data.keys()),
             set(['cust_name', 'contact_num', 'owner', 'created', 'cust_id'])
-            )
+        )
 
     def test_name_field_content(self):
         """

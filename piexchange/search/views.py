@@ -1,4 +1,3 @@
-
 """
 Views class
 """

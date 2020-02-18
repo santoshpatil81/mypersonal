@@ -12,8 +12,8 @@ http -a admin:admin POST http://127.0.0.1:8000/customer/ cust_name="test1" conta
 http -a admin:admin POST http://127.0.0.1:8000/customer/ cust_name="test2" contact_num="999999999"
 
 # View customer deatils
-http -a admin:admin GET http://127.0.0.1:8000/customer/1/ 
-http -a admin:admin GET http://127.0.0.1:8000/customer/2/ 
+http -a admin:admin GET http://127.0.0.1:8000/customer/1/
+http -a admin:admin GET http://127.0.0.1:8000/customer/2/
 
 # Search customers based on a portion of contact number
 http -a admin:admin GET http://127.0.0.1:8000/search/123/
