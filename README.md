@@ -1,6 +1,6 @@
 # Design
 
-I have chosen the Python Django framework to build my application due to the fact that it simplifies and accelarates web development. Apart from that it has support for MVC framework, has robust security features and is compatible with major operating systems and databases. Also, its open source with a large active community.
+I have chosen the Python Django framework to build my REST APIs due to the fact that it simplifies and accelarates web development. Apart from that it has support for MVC framework, has robust security features and is compatible with major operating systems and databases. Also, its open source with a large active community.
 
 I have chose PostgresSQL as my backend mainly because its open source, robust, supports high performance and multitasking and can efficiently store large amounts of data.
 
