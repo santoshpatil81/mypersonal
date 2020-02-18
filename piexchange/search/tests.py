@@ -30,7 +30,7 @@ class CustomerTests(APITestCase):
         user = User.objects.create_user(
             username, email, password
         )
-        user = User.objects.get(username='test')
+        user = User.objects.get(username)
 
         Customer.objects.create(
             cust_name='John', contact_num='12345678999', owner=user)
@@ -45,7 +45,7 @@ class CustomerTests(APITestCase):
         response = cust_detail(request, pk=cust.pk)
         self.assertEqual(response.status_code, 200)
 
-    def test_get_customer_cust_name(self):
+    def test_get_customer_name(self):
         """
         get customer details
         """
@@ -56,7 +56,7 @@ class CustomerTests(APITestCase):
         self.assertEqual(Customer.objects.count(), 1)
         self.assertEqual(Customer.objects.get().cust_name, "John")
 
-    def test_get_customer_contact_num(self):
+    def test_get_customer_contact_number(self):
         """
         get customer based on contact number
         """
@@ -83,14 +83,14 @@ class TestCustomerModel(TestCase):
         user = User.objects.create_user(
             username, email, password
         )
-        user = User.objects.get(username='test')
+        user = User.objects.get(username)
 
         Customer.objects.create(
             cust_name='John', contact_num='12345678999', owner=user)
         Customer.objects.create(
             cust_name='Milo', contact_num='12345678888', owner=user)
 
-    def test_cust_name(self):
+    def test_customer_name(self):
         """
         get customer name based on contact number
         """
@@ -101,7 +101,7 @@ class TestCustomerModel(TestCase):
         self.assertEqual(
             cust_milo.get_cust_name(), "Milo")
 
-    def test_contact_num(self):
+    def test_customer_contact_number(self):
         """
         get customer based on name
         """

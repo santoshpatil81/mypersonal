@@ -1,6 +1,8 @@
-from django.contrib.auth.models import User
+"""
+Customer model
+"""
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class Customer(models.Model):
     """
@@ -10,21 +12,30 @@ class Customer(models.Model):
     cust_name = models.CharField(max_length=254, null=False)
     contact_num = models.TextField(max_length=11)
     created = models.DateTimeField(auto_now_add=True)
-    owner = models.ForeignKey('auth.User', related_name='customer', on_delete=models.CASCADE, default='1')
+    owner = models.ForeignKey(
+        User,
+        related_name='customer',
+        on_delete=models.CASCADE,
+        default='1')
 
-    def get_cust_name(self):
+    def get_customer_name(self):
+        """
+        :return: args: Customer
+        """
         return self.cust_name
 
-    def get_contact_num(self):
+    def get_customer_contact_number(self):
+        """
+        :return: args: Customer
+        """
         return self.contact_num
+
+    def save(self, *args, **kwargs):
+        """
+
+        :type args: Customer
+        """
+        super(self, Customer).save(*args, **kwargs)
 
     class Meta:
         ordering = ['created', 'contact_num']
-
-
-def save(self, *args, **kwargs):
-    """
-
-    :type args: Customer
-    """
-    super(self, Customer).save(*args, **kwargs)

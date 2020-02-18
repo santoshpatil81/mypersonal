@@ -1,5 +1,6 @@
 
 """
+Views class
 """
 
 from django.contrib.auth.models import User
@@ -9,8 +10,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from search.models import Customer
 from search.serializers import CustomerSerializer, UserSerializer
-from . import permissions
-from .permissions import IsOwnerOrReadOnly
+from search.permissions import IsOwnerOrReadOnly
 
 
 @api_view(['GET'])
@@ -18,8 +18,8 @@ def api_root(request):
     """
     API root
     """
-    return Response({'users': reverse('user-list', request=request, format=format),
-                     'customer': reverse('customer-list', request=request, format=format)})
+    return Response({'users': reverse('user-list', request=request, format=None),
+                     'customer': reverse('customer-list', request=request, format=None)})
 
 
 class CustomerViewSet(viewsets.ModelViewSet):

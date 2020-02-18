@@ -1,6 +1,6 @@
 
 """
-Appconfig
+class AppConfig
 """
 
 from django.apps import AppConfig
