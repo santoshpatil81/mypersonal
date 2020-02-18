@@ -18,7 +18,7 @@ docker-compose up -d && docker exec -ti mypersonal_piexchange_1 bash "run_comman
 ```
 http -a admin:admin POST http://127.0.0.1:8000/customer/ cust_name="test1" contact_num="12345678912"
 ```
-###Output:
+### Output:
 ```
 HTTP/1.1 201 Created
 Allow: GET, POST, HEAD, OPTIONS
@@ -44,7 +44,7 @@ X-Frame-Options: DENY
 ```
 http -a admin:admin GET http://127.0.0.1:8000/customer/1/ 
 ```
-###Output:
+### Output:
 ```
 HTTP/1.1 200 OK
 Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
@@ -70,7 +70,7 @@ X-Frame-Options: DENY
 ```
 http -a admin:admin GET http://127.0.0.1:8000/search/123/ 
 ```
-###Output:
+### Output:
 ```
 HTTP/1.1 200 OK
 Allow: GET, HEAD, OPTIONS
@@ -97,7 +97,7 @@ X-Frame-Options: DENY
 ```
 http -a admin:admin POST http://127.0.0.1:8000/customer/ cust_name="test1"
 ```
-###Output:
+### Output:
 ```
 HTTP/1.1 400 Bad Request
 Allow: GET, POST, HEAD, OPTIONS
