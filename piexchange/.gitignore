@@ -1,0 +1,5 @@
+**/lib
+**/include
+**/bin
+**/.idea
+__pycache__
