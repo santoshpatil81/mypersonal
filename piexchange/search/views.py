@@ -1,4 +1,7 @@
 
+"""
+"""
+
 from django.contrib.auth.models import User
 from rest_framework import viewsets, renderers, reverse
 from rest_framework.decorators import action, api_view
@@ -11,12 +14,12 @@ from .permissions import IsOwnerOrReadOnly
 
 
 @api_view(['GET'])
-def api_root(request, format=None):
-     return Response({
-         'users': reverse('user-list', request=request, format=format),
-         'customer': reverse('customer-list', request=request, format=format),
-     })
-
+def api_root(request):
+    """
+    API root
+    """
+    return Response({'users': reverse('user-list', request=request, format=format),
+                     'customer': reverse('customer-list', request=request, format=format)})
 
 
 class CustomerViewSet(viewsets.ModelViewSet):
@@ -31,6 +34,9 @@ class CustomerViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
     def perform_create(self, serializer):
+        """
+        Create customer object
+        """
         serializer.save(owner=self.request.user)
 
 
@@ -45,12 +51,16 @@ class SearchViewSet(viewsets.ModelViewSet):
                           IsOwnerOrReadOnly]
 
     @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
-    def retrieve(self, serializer,contact):
+    def retrieve(self, serializer, contact):
+        """
+        Retrieve customers
+        """
         customers = Customer.objects.all()
         if contact is not None:
             customers = customers.filter(contact_num__contains=contact)
             serializer = CustomerSerializer(customers, many=True)
-            return Response(serializer.data)
+
+        return Response(serializer.data)
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
@@ -59,4 +69,3 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
-

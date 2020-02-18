@@ -8,7 +8,7 @@ I have chose PostgresSQL as my backend mainly because its open source, robust, s
 
 The following command will build the containers and launch the end-to-end tests
 ```
-docker-compose up -d && docker exec -ti django_piexchange_1 bash "run_command.sh"
+docker-compose up -d && docker exec -ti mypersonal_piexchange_1 bash "run_command.sh"
 ```
 
 # Tests and Output

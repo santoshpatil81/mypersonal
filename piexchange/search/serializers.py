@@ -1,3 +1,8 @@
+
+"""
+Serializers
+"""
+
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
@@ -11,6 +16,9 @@ class CustomerSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
+        """
+        meta
+        """
         model = Customer
         fields = ['cust_id', 'cust_name', 'contact_num', 'created', 'owner']
 
@@ -22,5 +30,8 @@ class UserSerializer(serializers.ModelSerializer):
     customer = serializers.PrimaryKeyRelatedField(many=True, queryset=Customer.objects.all())
 
     class Meta:
+        """
+        meta
+        """
         model = User
         fields = ['id', 'username', 'customer']
