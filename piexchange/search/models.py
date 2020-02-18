@@ -31,12 +31,5 @@ class Customer(models.Model):
         """
         return self.contact_num
 
-    def save(self, *args, **kwargs):
-        """
-
-        :type args: Customer
-        """
-        super(self, Customer).save(*args, **kwargs)
-
     class Meta:
         ordering = ['created', 'contact_num']
